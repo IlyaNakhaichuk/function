@@ -1,6 +1,8 @@
 package com.levelp.func;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,8 +11,8 @@ public class CharFuncmCl {
     public void charIn(String s) {
         //char [] charArray = s.toCharArray();
         String[] charArray = s.split("");
-        String Arr1[] = new String[charArray.length];
-         for(int a=0;a<charArray.length;a++) {
+        ArrayList<String> Arr1 = new ArrayList<>();
+        for(int a=0;a<charArray.length;a++) {
              if (charArray[a].equals("x")) {
                  System.out.println("Умножить");
                  continue;
@@ -21,11 +23,10 @@ public class CharFuncmCl {
                  System.out.println("Скобка )");
                  continue;
              }
-             [x] = charArray[a];
-             x++;
+             Arr1.add(charArray[a]);
          }
 
-        for (String count : Arr1) {
+        for (Object count : Arr1) {
             System.out.println(count);
         }
 
