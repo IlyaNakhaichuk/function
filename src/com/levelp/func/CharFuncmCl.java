@@ -1,4 +1,6 @@
 package com.levelp.func;
+import com.sun.media.sound.SoftLinearResampler2;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -6,16 +8,17 @@ import java.util.regex.Pattern;
 
 public class CharFuncmCl {
     public void charIn(String s) {
-        //char [] charArray = s.toCharArray();
         String[] charArray = s.split("");
         ArrayList<String> Arr1 = new ArrayList<>();
+        ArrayList<String> Arr2 = new ArrayList<>();
         for(int a=0;a<charArray.length;a++) {
              if (charArray[a].equals("x")) {
                  System.out.println("Умножить");
-
+                 krat(charArray[++a],Arr1,Arr2);
                  continue;
              } else if (charArray[a].equals("(")) {
                  System.out.println("Скобка (");
+                 povtorChar(charArray[++a],Arr1,Arr2);
                  continue;
              } else if (charArray[a].equals(")")) {
                  System.out.println("Скобка )");
@@ -23,11 +26,10 @@ public class CharFuncmCl {
              }
              Arr1.add(charArray[a]);
          }
-
         for (Object count : Arr1) {
-            System.out.println(count);
-        }
-        raship(s);
+            System.out.print(count);
+       }
+        //raship(s);
       //  System.out.println("Вывод:" + Arrays.toString(charArray));
         //System.out.println(charArray[0] + "           " + charArray[1] + "       " + charArray.length);
 
@@ -56,6 +58,23 @@ public class CharFuncmCl {
     private void checkChar(int a){
         System.out.println("Символ");*/
     }
+    public void povtorChar(String c,ArrayList Arr1, ArrayList Arr2){
+        int q= Integer.parseInt(c);
+        Arr2.clear();
+        for(int i=Arr1.size()-q;i<Arr1.size();i++ ) {
+            Arr2.add(Arr1.get(i));
+        }
+    }
+    public void krat(String c, ArrayList Arr1, ArrayList Arr2){
+        int q = Integer.parseInt(c);
+        while (q!=0){
+            for(int i=0;i<Arr2.size();i++) {
+                Arr1.add(Arr2.get(i));
+            }
+        q--;
+    }
+    }
+
     public void raship(String b){
         Matcher m = Pattern.compile("\\w+").matcher(b);
         while (m.find()) {
