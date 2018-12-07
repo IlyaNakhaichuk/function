@@ -1,13 +1,10 @@
 package com.levelp.func;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CharFuncmCl {
-    int x;
     public void charIn(String s) {
         //char [] charArray = s.toCharArray();
         String[] charArray = s.split("");
@@ -15,6 +12,7 @@ public class CharFuncmCl {
         for(int a=0;a<charArray.length;a++) {
              if (charArray[a].equals("x")) {
                  System.out.println("Умножить");
+
                  continue;
              } else if (charArray[a].equals("(")) {
                  System.out.println("Скобка (");
@@ -29,24 +27,11 @@ public class CharFuncmCl {
         for (Object count : Arr1) {
             System.out.println(count);
         }
-
-        System.out.println("Вывод:" + Arrays.toString(charArray));
+        raship(s);
+      //  System.out.println("Вывод:" + Arrays.toString(charArray));
         //System.out.println(charArray[0] + "           " + charArray[1] + "       " + charArray.length);
 
-        Matcher m = Pattern.compile("\\w+").matcher(s);
-        while (m.find()) {
-            System.out.println(m.group(0));
-            /*if(Character.isDigit(Integer.parseUnsignedInt(m.group(0)))){
-                System.out.println("Число");
-            }
-            else{
-                System.out.println("символ");
-
-            }*/
-        }
-
-
-       /*
+        /*
         for(int a=0; a<=charArray.length;a++) {
             if(Character.isDigit(charArray[a])){
                 //int[] chislo =
@@ -70,6 +55,20 @@ public class CharFuncmCl {
     }
     private void checkChar(int a){
         System.out.println("Символ");*/
+    }
+    public void raship(String b){
+        Matcher m = Pattern.compile("\\w+").matcher(b);
+        while (m.find()) {
+            if(m.group(0).equals('x')){continue;}
+            System.out.println(m.group(0));
+            /*if(Character.isDigit(Integer.parseUnsignedInt(m.group(0)))){
+                System.out.println("Число");
+            }
+            else{
+                System.out.println("символ");
+
+            }*/
+        }
     }
 
 }
